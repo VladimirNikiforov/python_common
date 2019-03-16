@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<books>
+	<book name="Айболит">
+		<number>1</number>
+		<year>2005</year>
+		<pages>100</pages>
+		<person name="Айболит" gender="M"/>
+		<person name="Авва" gender="M"/>
+		<person name="Чи-чи" gender="F"/>
+	</book>
+	<book name="Бармалей">
+		<number>4</number>
+		<year>2015</year>
+		<pages>200</pages>
+		<person name="Манечка" gender="F"/>
+		<person name="Ванечка" gender="M"/>
+	</book>
+	<book name="Крокодил">
+		<number>68</number>
+		<year>2017</year>
+		<pages>50</pages>
+		<person name="Крокодил" gender="M"/>
+		<person name="Медведь" gender="M"/>
+	</book>
+</books>

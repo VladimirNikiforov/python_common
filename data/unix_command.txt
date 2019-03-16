@@ -1,0 +1,656 @@
+cd ~/Documents
+head -n 4 states.txt > four.txt
+head -n 6 states.txt > six.txt
+
+diff four.txt six.txt
+
+## 4a5,6
+## > California
+## > Colorado
+
+sdiff four.txt six.txt
+
+## Alabama              Alabama
+## Alaska               Alaska
+## Arizona              Arizona
+## Arkansas             Arkansas
+##                    > California
+##                    > Colorado
+
+cp states.txt states_copy.txt
+
+md5 states.txt
+
+## MD5 (states.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+
+md5 states_copy.txt
+
+## MD5 (states_copy.txt) = 8d7dd71ff51614e69339b03bd1cb86ac
+
+
+shasum states.txt
+
+## 588e9de7ffa97268b2448927df41760abd3369a9  states.txt
+
+shasum states_copy.txt
+
+## 588e9de7ffa97268b2448927df41760abd3369a9  states_copy.txt
+
+head -n 5 states_copy.txt > states_copy.txt
+shasum states_copy.txt
+
+## b1c1c805f123f31795c77f78dd15c9f7ac5732d4  states_copy.txt
+
+cd ~/Documents
+cat canada.txt
+
+## Nunavut
+## Quebec
+## Northwest Territories
+## Ontario
+## British Columbia
+## Alberta
+## Saskatchewan
+## Manitoba
+## Yukon
+## Newfoundland and Labrador
+## New Brunswick
+## Nova Scotia
+## Prince Edward Island
+
+
+cat canada.txt | head -n 5
+
+Nunavut
+Quebec
+Northwest Territories
+Ontario
+British Columbia
+
+grep "[aeiou]$" states.txt | wc -l
+
+## 32
+
+ls -al | grep "Feb" | less
+
+-rw-r--r--   1 sean  staff   472 Feb 22 13:47 states.txt
+
+
+    1  jupyter notebook
+    2  ls
+    3  cd Downloads/
+    4  ls
+    5  ./Anaconda3-4.4.0-Linux-x86_64.sh 
+    6  cd Downloads/
+    7  ./Anaconda3-4.4.0-Linux-x86_64.sh 
+    8  exit
+    9  ipython
+   10  jupyter notebook
+   11  sudo openconnect vpn.moscow.sportmaster.ru
+   12  sudo openconnect vpn.sportmaster.ru
+   13  jupyter notebook
+   14  pip install xgboost
+   15  anaconda search -t conda xgboost
+   16  pip install libxgboost
+   17  pip install anaconda/libxgboost
+   18  conda install -c anaconda py-xgboost=0.60
+   19  conda create -n py27 python=2.7 ipykernel
+   20  jupyter notebook
+   21  conda create -n py36 python=3.6 ipykernel
+   22  jupyter notebook
+   23  source activate py27
+   24  jupyter notebook
+   25  conda install notebook ipykernel
+   26  ipython kernel install --user
+   27  jupyter notebook
+   28  exit
+   29  grep menuentry /boot/grub/grub.cfg
+   30  sudo nano -B /etc/default/grub
+   31  sudo update-grub
+   32  exit
+   33  sudo openconnect vpn.sportmaster.ru
+   34  conda create -n py36 python=3.6
+   35  source activate py36
+   36  conda install notebook ipykernel
+   37  ipython kernel install --user
+   38  jupyter notebook
+   39  conda info --envs
+   40  activate py27
+   41  source activate py27
+   42  pip install matplotlib
+   43  jupyter notebook
+   44  pip install sklearn
+   45  pip install scipy
+   46  jupyter notebook
+   47  exit
+   48  pip3 install pybrain
+   49  pip install pybrain
+   50  cd anaconda3/pkgs/pybrain-master/
+   51  python setup.py install
+   52  exit
+   53  sudo openconnect vpn.sportmaster.ru
+   54  jupyter notebook
+   55  sudo openconnect vpn.sportmaster.ru
+   56  source activate py3
+   57  conda info --envs
+   58  source activate py36
+   59  pip install pandas
+   60  pip install sklearn
+   61  pip install scipy
+   62  jupyter notebook
+   63  sudo openconnect vpn.sportmaster.ru
+   64  jupyter notebook
+   65  sudo openconnect vpn.sportmaster.ru
+   66  jupyter notebook
+   67  sudo openconnect vpn.sportmaster.ru
+   68  jupyter notebook
+   69  source activate py27
+   70  pip install seaborn
+   71  sudo openconnect vpn.sportmaster.ru
+   72  apt-get --yes update
+   73  sudo
+   74  sudo apt-get --yes update
+   75  apt-get --yes install git
+   76  sudo apt-get --yes install git
+   77  sudo apt-get --yes install make
+   78  sudo apt-get --yes install cmake
+   79  sudo apt-get --yes install build-essential
+   80  sudo apt-get --yes install libboost-all-dev
+   81  pip install protobuf
+   82  pip install tqdm
+   83  git clone --branch=stable https://github.com/bigartm/bigartm.git
+   84  cd bigartm
+   85  mkdir build && cd build
+   86  cmake ..
+   87  make
+   88  sudo pip install protobuf
+   89  sudo pip2 install -U pip
+   90  sudo pip2 install -U numpy pandas protobuf--3.0.0 tqdm
+   91  sudo apt-get --yes install python-numpy
+   92  sudo apt-get --yes install python-pandas
+   93  cd .
+   94  cd ..
+   95  sudo wget https://bootstrap.pypa.io/get-pip.py
+   96  sudo python get-pip.py
+   97  sudo pip install protobuf
+   98  sudo pip install tqdm
+   99  sudo git clone --branch=stable https://github.com/bigartm/bigartm.git
+  100  cd bigartm
+  101  sudo mkdir build && cd build
+  102  cd build
+  103  sudo cmake ..
+  104  sudo make
+  105  sudo make install
+  106  sudo export ARTM_SHARED_LIBRARY=/usr/local/lib/libartm.so
+  107  export ARTM_SHARED_LIBRARY=/usr/local/lib/libartm.so
+  108  bigartm --help
+  109  python2.7
+  110  pip install artm
+  111  source activate py27
+  112  pip install artm
+  113  jupyter notebook
+  114  cd ..
+  115  ls
+  116  ./install_bigartm.sh
+  117  sudo ./install_bigartm.sh
+  118  python
+  119  python2.7
+  120  source activate py27
+  121  pip install protobuf
+  122  pip install tqdm
+  123  cd bigartm
+  124  cd build
+  125  cmake ..
+  126  make
+  127  sudo make
+  128  sudo make install
+  129  export ARTM_SHARED_LIBRARY=/usr/local/lib/libartm.so
+  130  cd bigartm/
+  131  ls
+  132  cd pyth
+  133  cd python/
+  134  ls
+  135  source activate py27
+  136  sudo python27 setup.py install
+  137  sudo python2 setup.py install
+  138  cd ~/bigartm/3rdparty/protobuf-3.0.0/python/
+  139  sudo python2 setup.py install
+  140  sudo python setup.py install
+  141  cd ~/bigartm/python/
+  142  sudo python2 setup.py install
+  143  sudo python setup.py install
+  144  export ARTM_SHARED_LIBRARY=~/bigartm/build/src/artm/libartm.so 
+  145  bigartm --help
+  146  python2
+  147  exit
+  148  sudo openconnect vpn.sportmaster.ru
+  149  jupyter notebook
+  150  sudo jupyter notebook
+  151  jupyter notebook
+  152  source activate py27
+  153  jupyter notebook
+  154  ./install_bigartm.sh 
+  155  sudo ./install_bigartm.sh 
+  156  cd bigartm
+  157  cd ..
+  158  echo /usr/local/lib | sudo tee /etc/ld.so.conf.d/artm.conf
+  159  sudo ldconfig
+  160  echo ARTM_SHARED_LIBRARY
+  161  ARTM_SHARED_LIBRARY
+  162  cd /usr/local/lib
+  163  ls
+  164  sudo openconnect vpn.sportmaster.ru
+  165  jupyter notebook
+  166  source activate py27
+  167  pip install statsmodels
+  168  jupyter notebook
+  169  sudo openconnect vpn.sportmaster.ru
+  170  jupyter notebook
+  171  echo Vladimir
+  172  echo 'Vladimir'
+  173  echo "Vladimir"
+  174  clear
+  175  pwd
+  176  cd ~/
+  177  ls
+  178  cd /
+  179  ls
+  180  cd ~/
+  181  ls
+  182  cd /
+  183  ls
+  184  cd home
+  185  ls
+  186  cd truename
+  187  ls
+  188  cd ~
+  189  ls
+  190  cd /
+  191  cd ~
+  192  ls
+  193  mkdir Code
+  194  ls
+  195  touch journal-2017-01-24.txt
+  196  wc todo.txt
+  197  cat todo.txt
+  198  cat pines.txt
+  199  less pines.txt
+  200  head pines.txt
+  201  head -n 7pines.txt
+  202  head -n 7 pines.txt
+  203  rm Code
+  204  ls
+  205  rmdir Code
+  206  ls
+  207  mkdir workbench
+  208  touch workbench/readme.txt
+  209  1 >> workbench/readme.txt
+  210  '1' >> workbench/readme.txt
+  211  echo 1 >> workbench/readme.txt
+  212  echo 2 >> workbench/readme.txt
+  213  echo 3 >> workbench/readme.txt
+  214  cat workbench/readme.txt
+  215  ls >> workbench/list.txt
+  216  wc workbench/list.txt
+  217  ls
+  218  touch message.txt
+  219  mv message.txt Downloads
+  220  ls ./Downloads
+  221  cp ./Downloads/message.txt ./message.txt
+  222  ls
+  223  del --help
+  224  mv message.txt ~/.local/share/Trash
+  225  mv ./Downloads/message.txt ~/.local/share/Trash
+  226  ls
+  227  man ls
+  228  apropos editor
+  229  man ls
+  230  man man
+  231  apropos calendar
+  232  man calendar
+  233  ls
+  234  ls preproc*
+  235  ls preproc* -h
+  236  ls -h preproc*
+  237  ls ./Downloads
+  238  grep "New" states.txt
+  239  grep "New" ./Downloads/states.txt
+  240  grep "new" ./Downloads/states.txt
+  241  grep /?
+  242  man grep
+  243  grep -i "new" ./Downloads/states.txt
+  244  grep -i "x" ./Downloads/states.txt
+  245  grep -i "t" ./Downloads/states.txt
+  246  jupyter notebook
+  247  sudo openconnect vpn.sportmaster.ru
+  248  jupyter notebook
+  249  sudo openconnect vpn.sportmaster.ru
+  250  exit
+  251  ls
+  252  cat weight.txt
+  253  ls
+  254  ls *.txt
+  255  cat water.txt
+  256  egrep "v.r" water.txt
+  257  egrep "v+r" water.txt
+  258  egrep "v+er" water.txt
+  259  egrep "v*r" water.txt
+  260  egrep "o{2}" water.txt
+  261  egrep "o{2,3}" water.txt
+  262  egrep "(l){2,3}" water.txt
+  263  egrep "(l.{2}){3}" water.txt
+  264  egrep "(l.{2}){2}" water.txt
+  265  ls
+  266  touch small.txt
+  267  echo "abcdefghijklmnopqrstuvwxyz" >> small.txt
+  268  echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" >> small.txt
+  269  echo "0123456789" >> small.txt
+  270  echo "aa bb cc" >> small.txt
+  271  echo "rhythms" >> small.txt
+  272  echo "xyz" >> small.txt
+  273  echo "abc" >> small.txt
+  274  echo "tragedy + time = humor" >> small.txt
+  275  echo "http://www.jhsph.edu/" >> small.txt
+  276  echo "#%&-=***=-&%#" >> small.txt
+  277  egrep "\w" small.txt
+  278  egrep "\d" small.txt
+  279  egrep "\s" small.txt
+  280  egrep -v "\w" small.txt
+  281  egrep "\W" small.txt
+  282  egrep "[aeiou]" small.txt
+  283  egrep "[^aeiou]" small.txt
+  284  egrep "[e-q]" small.txt
+  285  egrep "[E-Q]" small.txt
+  286  egrep "[e-qE-Q]" small.txt
+  287  exit
+  288  exit
+  289  sudo openconnect
+  290  sudo openconnect vpn.sportmaster.ru
+  291  jupyter notebook
+  292  docker run -v /media/truename/Data/Work/Learning/Coursera/ML_and_DS/assignment-computer-vision:/opt/webapp -it gcr.io/tensorflow/tensorflow bash
+  293  docker run -v /home/truename/Documents/assignment-computer-vision:/opt/webapp -it gcr.io/tensorflow/tensorflow bash
+  294  docker run -it -p 127.0.0.1:8888:8888 -v /home/truename/Documents/assignment-computer-vision:/notebooks gcr.io/tensorflow/tensorflow
+  295  cd /home/truename/Documents/assignment-computer-vision/
+  296  ls
+  297  docker run -it -p 127.0.0.1:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  298  docker run -it -p 127.0.0.1:8887:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  299  docker run -it -p 8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  300  docker run -it -p 8887:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  301  docker run -it -p 1252:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  302  docker run -detach=true -name TensorFlowUI -it -p 8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  303  docker run --detach=true --name TensorFlowUI -it -p 8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  304  docker start TensorFlowUI
+  305  docker stop TensorFlowUI
+  306  docker start TensorFlowUI
+  307  docker logs -f TensorFlowUI
+  308  docker stop TensorFlowUI
+  309  docker run --name TensorFlowUI -it -p 127.0.0.1:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  310  docker start TensorFlowUI
+  311  docker exec -it TensorFlowUI exit
+  312  docker exec -it TensorFlowUI bash
+  313  docker ps
+  314  docker rm TensorFlowUI
+  315  docker stop TensorFlowUI
+  316  docker rm TensorFlowUI
+  317  docker ps
+  318  docker run --name TensorFlowUI -it -p 0.0.0.0:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow --allow-root
+  319  docker run --allow-root --name TensorFlowUI -it -p 0.0.0.0:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  320  docker run --name TensorFlowUI -it -p 0.0.0.0:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  321  docker images
+  322  docker images --help
+  323  docker container --help
+  324  docker run --name TensorFlowUI -it -p 0.0.0.0:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  325  docker container rm d4df53ca379d5a4faac38ae735535b9119c6d3f5dabaf9affaa499b6fa29dd06
+  326  docker images
+  327  docker image --help
+  328  docker image rm 4f6da7f06480
+  329  docker image rm 4f6da7f06480 -force
+  330  docker image rm --help
+  331  docker image rm 4f6da7f06480 --force
+  332  docker images
+  333  docker containers
+  334  docker container
+  335  docker container ls
+  336  docker images
+  337  docker image rm ba7c58ad55f1 --force
+  338  docker images
+  339  docker image rm d355ed3537e9 --force
+  340  docker images
+  341  docker image rm 8eb24a3f85b8 --force
+  342  docker images
+  343  docker image rm a1afb58893eb --force
+  344  docker images
+  345  docker run -it -p 127.0.0.1:8888:8888 -v $PWD:/notebooks gcr.io/tensorflow/tensorflow
+  346  docker run -it -p 8888:8888 p 6006:6006 -v /$(pwd):/notebooks gcr.io/tensorflow/tensorflow
+  347  docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd):/notebooks gcr.io/tensorflow/tensorflow
+  348  docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd):/notebooks gcr.io/tensorflow/tensorflow sh -c "jupyter notebook /notebook"
+  349  docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd):/notebooks gcr.io/tensorflow/tensorflow sh -c "jupyter notebook /notebooks"
+  350  docker run -it -p 8888:8888 -p 6006:6006 -v /$(pwd):/notebooks gcr.io/tensorflow/tensorflow
+  351  source activate py27
+  352  pip install tensorflow
+  353  pip install scipy
+  354  pip install Pillow
+  355  pip install sklearn
+  356  jupyter notebook
+  357  cd ~/Documents/assignment-computer-vision/
+  358  jupyter notebook
+  359  docker ps
+  360  ps
+  361  docker ps
+  362  pwd
+  363  docker ps
+  364  cd
+  365  pwd
+  366  find . -name "states.txt"
+  367  find . -name "*.jpg"
+  368  cd ./Downloads/
+  369  ls
+  370  find . -name "states.txt"
+  371  grep -n "New" "states.txt"
+  372  grep "[^a]" "states.txt" > states_no_a.txt
+  373  grep "[^o]" "states.txt" > states_no_o.txt
+  374  grep "[^i]" "states.txt" > states_no_i.txt
+  375  grep "[^e]" "states.txt" > states_no_e.txt
+  376  grep "[^u]" "states.txt" > states_no_u.txt
+  377  cat states_no_a.txt
+  378  cat states_no_u.txt
+  379  grep "[^Aa]+" "states.txt" > states_no_a.txt
+  380  cat states_no_a.txt
+  381  grep "[^Aa]" "states.txt" > states_no_a.txt
+  382  cat states_no_a.txt
+  383  grep "[Aa]{0}" "states.txt" > states_no_a.txt
+  384  cat states_no_a.txt
+  385  grep "([Aa]){0}" "states.txt" > states_no_a.txt
+  386  cat states_no_a.txt
+  387  grep "[^Aa]" "states.txt" > states_no_a.txt
+  388  cat states_no_a.txt
+  389  grep "[^Aa]+" "states.txt" > states_no_a.txt
+  390  cat states_no_a.txt
+  391  grep "[!Aa]+" "states.txt" > states_no_a.txt
+  392  cat states_no_a.txt
+  393  grep "[!Aa]" "states.txt" > states_no_a.txt
+  394  cat states_no_a.txt
+  395  grep -l "[!Aa]" states.txt
+  396  grep -l "[^Aa]" states.txt
+  397  grep -l "[^Aa]" "states.txt"
+  398  grep "[^Aa]" "states.txt"
+  399  grep "[!Aa]" "states.txt"
+  400  grep "[!Aa]" states.txt
+  401  grep "[^Aa].*" states.txt
+  402  grep "[^Aa].*" "states.txt" > states_no_a.txt
+  403  cat states_no_a.txt
+  404  grep "[^Aa]*" "states.txt" > states_no_a.txt
+  405  cat states_no_a.txt
+  406  grep "[^Aa]+" "states.txt" > states_no_a.txt
+  407  cat states_no_a.txt
+  408  grep "[^Aa]*" "states.txt" > states_no_a.txt
+  409  cat states_no_a.txt
+  410  grep "[^Aa]+$" "states.txt" > states_no_a.txt
+  411  cat states_no_a.txt
+  412  grep "[^Aa]+" "states.txt" > states_no_a.txt
+  413  cat states_no_a.txt
+  414  grep -iv "[a]+" "states.txt" > states_no_a.txt
+  415  cat states_no_a.txt
+  416  grep -iv "[Aa]" "states.txt" > states_no_a.txt
+  417  cat states_no_a.txt
+  418  grep -iv "[o]" "states.txt" > states_no_a.txt
+  419  cat states_no_a.txt
+  420  grep -iv "[a]" "states.txt" > states_no_a.txt
+  421  cat states_no_a.txt
+  422  grep -iv "[o]" "states.txt" > states_no_o.txt
+  423  cat states_no_o.txt
+  424  grep -iv "[e]" "states.txt" > states_no_e.txt
+  425  cat states_no_e.txt
+  426  grep -iv "[i]" "states.txt" > states_no_i.txt
+  427  cat states_no_i.txt
+  428  grep -iv "[u]" "states.txt" > states_no_u.txt
+  429  cat states_no_u.txt
+  430  grep -iv "[y]" "states.txt" > states_no_y.txt
+  431  cat states_no_y.txt
+  432  history
+  433  head -n 5 ~/.bash_history
+  434  grep "canada" ~/.bash_history
+  435  grep "[a]" ~/.bash_history
+  436  history > bash_commands.txt
+  437  ls bash_commands.txt 
+  438  ls -a bash_commands.txt 
+  439  ls -l bash_commands.txt 
+  440  ls -h bash_commands.txt 
+  441  ls -w bash_commands.txt 
+  442  history
+  443  cd ~/Documents/
+  444  head -n 6 states.txt
+  445  ls
+  446  history >> unix_command.txt
+
+
+
+
+Use pipes to figure out how many US states contain the word “New.”
+Examine your ~/.bash_history to try to figure out how many unique commands you’ve ever used. (You may need to look up how to use the uniq and sort commands).
+
+
+cd ~/Documents/Journal
+nano makefile
+
+draft_journal_entry.txt:
+  touch draft_journal_entry.txt
+
+ls
+
+## makefile
+
+
+make draft_journal_entry.txt
+
+## touch draft_journal_entry.txt
+
+ls
+
+## draft_journal_entry.txt
+## makefile
+
+make draft_journal_entry.txt
+
+## make: 'draft_journal_entry.txt' is up to date.
+
+echo "1. 2017-06-15-In-Boston" > toc.txt
+
+
+
+nano makefile
+draft_journal_entry.txt:
+  touch draft_journal_entry.txt
+  
+readme.txt: toc.txt
+  echo "This journal contains the following number of entries:" > readme.txt
+  wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+
+
+
+make readme.txt
+
+## echo "This journal contains the following number of entries:" > readme.txt
+## wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+
+
+
+cat readme.txt
+
+## This journal contains the following number of entries:
+## 1
+
+
+make readme.txt
+
+## make: 'readme.txt' is up to date.
+
+echo "2. 2017-06-16-IQSS-Talk" >> toc.txt
+make readme.txt
+
+## echo "This journal contains the following number of entries:" > readme.txt
+## wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+
+
+
+cat readme.txt
+
+## This journal contains the following number of entries:
+## 2
+
+
+
+
+nano makefile
+
+all: draft_journal_entry.txt readme.txt
+
+draft_journal_entry.txt:
+  touch draft_journal_entry.txt
+  
+readme.txt: toc.txt
+  echo "This journal contains the following number of entries:" > readme.txt
+  wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+
+
+
+
+all: draft_journal_entry.txt readme.txt
+
+draft_journal_entry.txt:
+  touch draft_journal_entry.txt
+  
+readme.txt: toc.txt
+  echo "This journal contains the following number of entries:" > readme.txt
+  wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+  
+clean:
+  rm draft_journal_entry.txt
+  rm readme.txt
+
+
+
+make clean
+ls
+
+## rm draft_journal_entry.txt
+## rm readme.txt
+## makefile
+## toc.txt
+
+make
+ls
+
+## touch draft_journal_entry.txt
+## echo "This journal contains the following number of entries:" > readme.txt
+## wc -l toc.txt | egrep -o "[0-9]+" >> readme.txt
+## draft_journal_entry.txt
+## readme.txt
+## makefile
+## toc.txt
+
+
+
+The history command shows the commands that you've used in your current shell session, while ~/.bash_history collects commands that you've used in past shell sessions.
+
+

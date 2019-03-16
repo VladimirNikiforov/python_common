@@ -1,0 +1,3 @@
+http://127.0.0.1:8000/admin/post/post/
+https://courses.openedu.ru/courses/course-v1:ITMOUniversity+PWADEV+spring_2017/courseware/de8fd82a5db340b1af797f6d23a0957d/207ff12b95fe436184763a0821d5bd36/
+https://djbook.ru/rel1.9/ref/models/fields.html#django.db.models.CharField
