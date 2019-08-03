@@ -1,0 +1,60 @@
+- name: dataset
+  size: large
+  columns: ['USER_ID', 'CURRENCY', 'AMOUNT', 'STATE', 'MERCHANT_CATEGORY', 'ENTRY_METHOD', 'TYPE', 'SOURCE', 'HAS_EMAIL', 'IS_FRAUDSTER', 'TERMS_VERSION', 'KYC', 'FAILED_SIGN_IN_ATTEMPTS', 'AGE', 'PROFILE_AGE', 'HOMELAND', 'DAY_OF_TRANSACTION', 'HOUR_OF_TRANSACTION', 'IS_CRYPTO']
+  schema: |
+    USER_ID uuid not null,
+    CURRENCY character(3) not null,
+    AMOUNT bigint not null,
+    STATE varchar(25) not null,
+    MERCHANT_CATEGORY varchar(100),
+    ENTRY_METHOD varchar(4),
+    TYPE varchar(20) not null,
+    SOURCE varchar(20) not null,
+    HAS_EMAIL integer not null,
+    IS_FRAUDSTER integer not null,
+    TERMS_VERSION varchar(20) not null,
+    KYC varchar(20) not null,
+    FAILED_SIGN_IN_ATTEMPTS integer not null,
+    AGE integer not null,
+    PROFILE_AGE integer not null,
+    HOMELAND integer not null,
+    DAY_OF_TRANSACTION integer not null,
+    HOUR_OF_TRANSACTION integer not null,
+    IS_CRYPTO integer not null
+
+- name: dataset_time
+  size: medium
+  columns: ['USER_ID', 'DAY_0', 'DAY_1', 'DAY_2', 'DAY_3', 'DAY_4', 'DAY_5', 'DAY_6', 'H_0', 'H_1', 'H_2', 'H_3', 'H_4', 'H_5', 'H_6', 'H_7', 'H_8', 'H_9', 'H_10', 'H_11', 'H_12', 'H_13', 'H_14', 'H_15', 'H_16', 'H_17', 'H_18', 'H_19', 'H_20', 'H_21', 'H_22', 'H_23']
+  schema: |
+    USER_ID uuid primary key,
+    DAY_0 real not null,
+    DAY_1 real not null,
+    DAY_2 real not null,
+    DAY_3 real not null,
+    DAY_4 real not null,
+    DAY_5 real not null,
+    DAY_6 real not null,
+    H_0 real not null,
+    H_1 real not null,
+    H_2 real not null,
+    H_3 real not null,
+    H_4 real not null,
+    H_5 real not null,
+    H_6 real not null,
+    H_7 real not null,
+    H_8 real not null,
+    H_9 real not null,
+    H_10 real not null,
+    H_11 real not null,
+    H_12 real not null,
+    H_13 real not null,
+    H_14 real not null,
+    H_15 real not null,
+    H_16 real not null,
+    H_17 real not null,
+    H_18 real not null,
+    H_19 real not null,
+    H_20 real not null,
+    H_21 real not null,
+    H_22 real not null,
+    H_23 real not null
