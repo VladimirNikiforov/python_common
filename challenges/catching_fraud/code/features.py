@@ -114,7 +114,7 @@ def prepare_currency_features(df, currencies_file_name):
 
 
 def collect_all_features(df, dataset_file_name):
-    cols_to_select = ['USER_ID', 'CURRENCY', 'AMOUNT',
+    cols_to_select = ['USER_ID', 'AMOUNT',
            'STATE', 'MERCHANT_CATEGORY', 'ENTRY_METHOD', 'TYPE', 'SOURCE', 'HAS_EMAIL', 
            'IS_FRAUDSTER', 'TERMS_VERSION', 'KYC', 'FAILED_SIGN_IN_ATTEMPTS', 'AGE', 'PROFILE_AGE', 'HOMELAND',
            'DAY_OF_TRANSACTION', 'HOUR_OF_TRANSACTION', 'IS_CRYPTO']
