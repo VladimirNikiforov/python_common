@@ -38,14 +38,15 @@ def prepare_transactions_features(user_df, transactions_file_name):
     
 def prepare_country_features(df, countries_file_name):
     cntr_df = pd.read_csv(countries_file_name)
+    # Trying to replace country code to CODE3
     df['COUNTRY'] = df['COUNTRY'].map({c[0]: c[1] for c in cntr_df[['CODE','CODE3']].values})
     # Trying to replace country code to CODE3
     df['MERCHANT_COUNTRY'] = df['MERCHANT_COUNTRY'].apply(lambda x: (cntr_df[cntr_df['NUMCODE']==int(x)]['CODE3'].values[0] if len(cntr_df[cntr_df['NUMCODE']==int(x)]['CODE3'].values)>0 else x) if x.isdigit() else x)
-    # Trying to replace country code to CODE3
-    # Add "C" to the missing countries
+    # Trying to replace country code to CODE3 and add "C" to the missing countries to set string format
     df['MERCHANT_COUNTRY'] = df['MERCHANT_COUNTRY'].apply(lambda x: (cntr_df[cntr_df['PHONECODE']==int(x)]['CODE3'].values[0] if len(cntr_df[cntr_df['PHONECODE']==int(x)]['CODE3'].values)>0 else 'C'+x) if x.isdigit() else x)
     # Fill NaN to Undefined and create binary variable HOMELAND to identify than transaction is made in country of user
     df['COUNTRY'] = df['COUNTRY'].fillna('Undefined')
+    # Feature HOMELAND to check that transaction is made from user' homeland country
     df['HOMELAND'] = df.apply(lambda x: 1 if x['COUNTRY'].upper() == x['MERCHANT_COUNTRY'].upper() else 0, axis=1)
     return df
 
@@ -53,6 +54,7 @@ def prepare_country_features(df, countries_file_name):
 def prepare_time_features(df, dataset_time_file_name):
     # Functions to calculate day and hour of transactions of users
     def transaction_by_day_count(dataset):
+        # create features in transactions (DAY_OF_TRANSACTION) and users (number of transactions for each day of week)
         dataset['DAY_OF_TRANSACTION'] = dataset['CREATED_DATE_x'].apply(
             lambda x: int((datetime.strptime(x, '%Y-%m-%d %H:%M:%S')).strftime('%w'))
         ) 
@@ -70,6 +72,7 @@ def prepare_time_features(df, dataset_time_file_name):
         return tmp_df
 
     def transaction_by_hour_count(dataset):
+        # create features in transactions (HOUR_OF_TRANSACTION) and users (number of transactions for each hour in day)
         dataset['HOUR_OF_TRANSACTION'] = dataset['CREATED_DATE_x'].apply(
             lambda x: int((datetime.strptime(x, '%Y-%m-%d %H:%M:%S')).strftime('%H'))
         ) 
@@ -106,14 +109,17 @@ def prepare_time_features(df, dataset_time_file_name):
 
 
 def prepare_currency_features(df, currencies_file_name):
+    # merge currency dict to the complete dataframe to modify amounts and add feature IS_CRYPTO
     cur_df = pd.read_csv(currencies_file_name)
     df = pd.merge(df, cur_df, left_on="CURRENCY", right_on="CCY")
     df['IS_CRYPTO'] = df['IS_CRYPTO'].astype(int)
+    # apply exponents to the amount
     df['AMOUNT'] = df['AMOUNT'] * 10**df['EXPONENT']
     return df
 
 
 def collect_all_features(df, dataset_file_name):
+    # Filter only necessary features and store dataframe to the file
     cols_to_select = ['USER_ID', 'AMOUNT',
            'STATE', 'MERCHANT_CATEGORY', 'ENTRY_METHOD', 'TYPE', 'SOURCE', 'HAS_EMAIL', 
            'IS_FRAUDSTER', 'TERMS_VERSION', 'KYC', 'FAILED_SIGN_IN_ATTEMPTS', 'AGE', 'PROFILE_AGE', 'HOMELAND',
@@ -177,13 +183,19 @@ def store_features_to_db(yaml_file, host, port, dbname, user):
 
     
 if __name__ == "__main__":
+    # load users dataset and prepare features
     user_df = prepare_user_features(users_file_name = '../data/users.csv')
+    # join users dataset with transactions and add new features
     df = prepare_transactions_features(user_df, transactions_file_name = '../data/transactions.csv')
+    # apply countries' dataset to get single format of countries
     df = prepare_country_features(df, countries_file_name = '../data/countries.csv')
+    # get period and time features, apply to the total dataframe and store them to the file
     df = prepare_time_features(df, dataset_time_file_name = '../data/dataset_time.csv')
+    # apply currencies' rules and add new features
     df = prepare_currency_features(df, currencies_file_name = '../data/currency_details.csv')
+    # filter features and store total dataframe to the file
     df = collect_all_features(df, dataset_file_name = '../data/dataset.csv')
-
+    # save total and time dataframes to the database
     store_features_to_db(yaml_file = "../misc/schemas_features.yaml",
                          host='localhost',
                          port=54320,

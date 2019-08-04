@@ -1,8 +1,8 @@
-# Load and identify users
+# Load and identify users by pretrained model
 
 def get_user_data(user_id, model_features, cat_features):
     # Load data from DB for specific user_id, split cat_features to dummies and fill absented categorical features' values by zeros to create complete dataset with model_features
-    
+    import numpy as np
     import pandas as pd
     import psycopg2
     # Create connection to DB
@@ -19,7 +19,7 @@ def get_user_data(user_id, model_features, cat_features):
     # get all rows from opened cursor
     result = c.fetchall()
     # check that we have one or more rows
-    assert len(result) > 0, f'We have no data for user_id={user_id}!'
+    assert len(result) > 0, f"We don't have data for user_id={user_id}!"
     # get column' names from cursor to create dataframe
     colnames = [desc[0].upper() for desc in c.description]
     # close cursor
@@ -30,8 +30,6 @@ def get_user_data(user_id, model_features, cat_features):
     result = pd.get_dummies(result, columns = cat_features)
     # absented fields with categorical features' values fill with zeros and concat with loaded dataset to create complete dataset with model_features
     result = pd.concat([result,pd.DataFrame(0, index=np.arange(len(result)), columns=[x for x in model_features if x not in result.columns])], axis = 1)[model_features]
-    # drop unused fields
-    result = result.drop(['IS_FRAUDSTER','USER_ID'],axis=1)
     # Close connection to DB
     connection.close()
     return result
@@ -57,15 +55,30 @@ def check_alert(y_predicted):
                                 .5  <= y < .75: 1,
                                        y <  .5: 0}[True] for y in y_predicted])]
 
+def load_model(model_path):
+    # Load pickled model from artifact
+    from sklearn.externals import joblib
+    rf = joblib.load(model_path)
+    return rf
+
+
 def patrol(user_id):
     # Main function
-    # load our pretrained model
-    from sklearn.externals import joblib
-    rf = joblib.load('../artifacts/model.pkl')
+    cat_features = ['ENTRY_METHOD','TYPE','SOURCE','STATE','MERCHANT_CATEGORY','TERMS_VERSION','KYC']
+    
+    # get list of features from the model
+    try:
+        col_list = rf.feature_names
+    except NameError:
+        # if model is not loaded yet => load our pretrained model
+        rf = load_model(model_path = '../artifacts/model.pkl')
+        col_list = rf.feature_names
+
     # load data for user_id
     X = get_user_data(user_id = user_id, model_features = col_list, cat_features = cat_features)
-    # check length of user' dataset
-    assert X.shape[0] > 0
-    # get prediction
+
+    # get prediction of model
     y_pred = rf.predict_proba(X)[:,1]
+
+    # apply rules and return solution
     return check_alert(y_pred)
