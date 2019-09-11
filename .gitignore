@@ -3,3 +3,5 @@
 .Rhistory
 *.zip
 .idea
+/challenges/catching_fraud/data/_DS_Store
+/ipynb/socourses/
